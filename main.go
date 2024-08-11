@@ -71,7 +71,7 @@ func ffmpegConvert(i string, o string, vc string, ac string) {
 		}
 
 	} else {
-		cmd := exec.Command("ffmpeg", "-y", "-i", i, o)
+		cmd := exec.Command("ffmpeg", "-y", "-i", i, "-c", "copy", o)
 		if err := cmd.Run(); err != nil && err != os.ErrProcessDone {
 			dialog.ShowInformation("Status", "Incorrect Input or Output Filename", appWindow)
 			return
